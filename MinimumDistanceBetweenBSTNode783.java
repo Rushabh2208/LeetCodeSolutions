@@ -29,6 +29,7 @@ public class MinimumDistanceBetweenBSTNode783 {
 	}
 	
 	//Using Recursion
+	//previous = null;
 	public int minDiffInBST2(TreeNode root) {
 		 if(root.left != null)
 	            minDiffInBST(root.left);
