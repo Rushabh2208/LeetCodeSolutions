@@ -5,32 +5,32 @@ import java.util.Queue;
 
 public class KthLargestElementInStream703 {
 
-	Queue<Integer> pQueue;
+	PriorityQueue<Integer> pq;
     int k;
 	public KthLargestElementInStream703(int k, int[] nums) {
-        this.pQueue = new PriorityQueue<>();
+        this.pq = new PriorityQueue<>();
         this.k = k;
         
         for (int num : nums) {
-            this.pQueue.offer(num);
-            if (pQueue.size() > k) {
-            	pQueue.poll();
+            this.pq.offer(num);
+            if (pq.size() > k) {
+            	pq.poll();
             }
         }
     }
     
     public int add(int val) {
         
-        if (pQueue.size() < k) {
-            pQueue.offer(val);
+        if (pq.size() < k) {
+        	pq.add(val);
         } else {
-            if (pQueue.peek() < val) {
-                pQueue.offer(val);
-                pQueue.poll();
+            if (pq.peek() < val) {
+            	pq.add(val);
+            	pq.poll();
             }
         }
         
-        return pQueue.peek();
+        return pq.peek();
     }
         
 	        
